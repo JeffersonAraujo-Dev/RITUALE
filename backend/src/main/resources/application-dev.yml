@@ -1,0 +1,27 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/rituale
+    username: rituale
+    password: rituale
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  flyway:
+    enabled: true
+
+server:
+  port: 8080
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:change-this-secret-in-production-minimum-32-characters}
+    expiration-ms: ${JWT_EXPIRATION_MS:86400000}
+  whatsapp:
+    phone: ${WHATSAPP_PHONE:5500000000000}

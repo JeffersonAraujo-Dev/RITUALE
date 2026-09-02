@@ -1,0 +1,21 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: rituale-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-rituale}
+      POSTGRES_USER: ${POSTGRES_USER:-rituale}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-rituale}
+    ports:
+      - "5432:5432"
+    volumes:
+      - rituale_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-rituale} -d ${POSTGRES_DB:-rituale}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  rituale_pgdata:

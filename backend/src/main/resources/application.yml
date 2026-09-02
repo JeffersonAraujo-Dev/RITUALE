@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: rituale-api
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/rituale
+    username: rituale
+    password: rituale
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+
+  flyway:
+    enabled: true
+
+server:
+  port: 8080
+
+app:
+  jwt:
+    secret: "change-this-secret-in-production-minimum-32-characters"
+    expiration-ms: 86400000
+
+  whatsapp:
+    phone: "5500000000000"

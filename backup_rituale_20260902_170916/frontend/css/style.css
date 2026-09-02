@@ -1,0 +1,19 @@
+:root{
+  --brown:#2a1b18; --purple:#3d2947; --gold:#c9a86a; --cream:#f5f0e8;
+  --text:#241c1a; --muted:#746966; --white:#fff;
+}
+*{box-sizing:border-box} body{margin:0;font-family:Inter,Arial,sans-serif;background:var(--cream);color:var(--text)}
+a{text-decoration:none;color:inherit}.header{height:76px;padding:0 6%;display:flex;align-items:center;justify-content:space-between;background:var(--brown);color:white;position:sticky;top:0;z-index:10}
+.logo{font-family:Georgia,serif;font-size:30px;letter-spacing:2px;color:var(--gold)}
+nav{display:flex;gap:24px;font-size:14px}nav a:hover{color:var(--gold)}
+.hero{min-height:72vh;padding:10%;display:flex;align-items:center;background:linear-gradient(120deg,var(--brown),var(--purple));color:white}
+.hero h1{font:500 clamp(48px,8vw,100px)/.95 Georgia,serif;margin:18px 0}.hero h1 strong{color:var(--gold);font-weight:500}
+.hero p{max-width:480px;color:#ddd;font-size:18px;line-height:1.7}.eyebrow{font-size:12px;letter-spacing:4px;color:var(--gold)}
+.button{display:inline-block;border:0;background:var(--gold);color:var(--brown);padding:14px 24px;border-radius:3px;font-weight:700;cursor:pointer}
+.section{padding:80px 6%;max-width:1300px;margin:auto}.section h1,.section h2{font:500 52px Georgia,serif;margin:10px 0 40px}
+.product-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px}
+.product-card{background:white;padding:18px;border-radius:8px;box-shadow:0 8px 30px #2a1b1812}.product-image{height:260px;background:linear-gradient(135deg,#e6ded1,#d1c2b5);border-radius:5px;display:flex;align-items:center;justify-content:center;color:#6c5b50}
+.product-card h3{font:500 22px Georgia,serif}.price{color:var(--purple);font-weight:700}.card-actions{display:flex;gap:8px;margin-top:14px}
+.auth{min-height:100vh;display:grid;place-items:center;background:linear-gradient(120deg,var(--brown),var(--purple));padding:20px}.auth-card{background:white;padding:40px;width:min(440px,100%);border-radius:10px}.auth-card h1{font:500 38px Georgia,serif}.auth-card form{display:grid;gap:14px}.auth-card input{padding:14px;border:1px solid #ddd;border-radius:4px;font-size:16px}
+footer{background:var(--brown);color:#ddd;padding:30px 6%;text-align:center}
+@media(max-width:700px){.header{height:auto;padding:18px 5%;gap:14px;align-items:flex-start}.header nav{gap:10px;flex-wrap:wrap;justify-content:flex-end}.hero{min-height:65vh;padding:12% 7%}.section{padding:55px 6%}.section h1,.section h2{font-size:40px}}
