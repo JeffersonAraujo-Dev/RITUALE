@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/rituale
+    url: jdbc:postgresql://dpg-daca0tfavr4c73fmrlfg-a/rituale_db
     username: rituale
     password: rituale
     driver-class-name: org.postgresql.Driver

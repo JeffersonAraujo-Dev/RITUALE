@@ -3,14 +3,16 @@ spring:
     name: rituale-api
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/rituale
-    username: rituale
-    password: rituale
+    url: jdbc:postgresql://dpg-daca0tfavr4c73fmrlfg-a/rituale_db
+    username: rituale_db_user
+    password: kmTcKOPEtf0zcdrpf7RXV2npU8cjdDlS
 
   jpa:
     hibernate:
       ddl-auto: validate
+
     open-in-view: false
+
     properties:
       hibernate:
         format_sql: true
