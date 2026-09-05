@@ -1,212 +1,655 @@
-# Rituale
+# 🌙 RITUALE
 
-Rituale é uma loja de fragrâncias com foco em catálogo premium, autenticação, favoritos, carrinho e fechamento via WhatsApp. O projeto usa Java 21 + Spring Boot no backend e HTML/CSS/JS no frontend estático para permitir uma entrega funcional rápida e clara.
+### E-commerce de fragrâncias com Java, Spring Boot, PostgreSQL e JavaScript
 
-## Stack
+A **RITUALE** é uma aplicação web de e-commerce desenvolvida para uma loja de fragrâncias, com foco em uma experiência de compra moderna, catálogo organizado e integração entre frontend e backend.
 
-- Backend: Java 21, Spring Boot 3, Spring Security, JWT, JPA, Flyway, PostgreSQL
-- Frontend: HTML, CSS e JavaScript
-- Infra local: Docker Compose
-- Checkout: WhatsApp como canal de fechamento do pedido
+O projeto possui uma arquitetura separada entre **frontend** e **backend**, utilizando uma API REST desenvolvida em Java/Spring Boot, banco de dados PostgreSQL e autenticação baseada em JWT.
 
-## Features implementadas
+O fechamento do pedido é realizado através do **WhatsApp**, permitindo que o cliente monte seu carrinho e encaminhe o pedido diretamente para atendimento.
 
-- Autenticação e registro com JWT
-- Usuários e perfis
-- Catálogo público de produtos
-- CRUD administrativo de produtos
-- Estoque e controle de itens
-- Favoritos por usuário
-- Carrinho por usuário
-- Pedidos e mensagem formatada para WhatsApp
-- Health check e configuração por ambiente
+---
 
-## Estrutura do projeto
+## ✨ Demonstração
+
+> Projeto em desenvolvimento e estruturado para execução local.
+
+**Repositório:**
+
+[github.com/JeffersonAraujo-Dev/RITUALE](https://github.com/JeffersonAraujo-Dev/RITUALE)
+
+---
+
+# 🛍️ Sobre a RITUALE
+
+A RITUALE foi projetada como uma loja virtual de fragrâncias, oferecendo ao cliente um fluxo simples:
 
 ```text
-rituale/
+Página inicial
+      ↓
+Catálogo
+      ↓
+Escolha da fragrância
+      ↓
+Página do produto
+      ↓
+Adicionar ao carrinho
+      ↓
+Revisar pedido
+      ↓
+Finalizar pelo WhatsApp
+```
+
+A aplicação também possui recursos de **autenticação, favoritos, carrinho por usuário, pedidos, controle de estoque e área administrativa**.
+
+---
+
+# 🚀 Funcionalidades
+
+## 👤 Usuário
+
+* Cadastro de usuário
+* Login
+* Autenticação utilizando JWT
+* Controle de sessão
+* Perfis de usuário
+* Área de favoritos
+* Carrinho associado ao usuário
+
+---
+
+## 🧴 Catálogo
+
+O sistema possui um catálogo público de produtos.
+
+Cada produto pode possuir informações como:
+
+* Nome
+* Slug
+* Descrição
+* Preço
+* Estoque
+* Categoria
+* Status de disponibilidade
+
+O catálogo é organizado através de categorias de produtos.
+
+---
+
+## 🔎 Produtos
+
+A aplicação possui uma página específica para visualização de cada produto.
+
+O cliente pode:
+
+* Visualizar informações da fragrância
+* Consultar preço
+* Ver disponibilidade em estoque
+* Adicionar o produto ao carrinho
+
+---
+
+## ❤️ Favoritos
+
+Usuários autenticados podem adicionar produtos aos favoritos.
+
+O sistema mantém os favoritos associados à conta do usuário.
+
+---
+
+## 🛒 Carrinho
+
+O carrinho permite:
+
+* Adicionar produtos
+* Controlar quantidade
+* Remover produtos
+* Consultar itens selecionados
+* Trabalhar com carrinho associado ao usuário
+
+---
+
+## 📦 Pedidos
+
+A aplicação possui estrutura de pedidos no backend.
+
+O pedido pode reunir os produtos selecionados pelo cliente e gerar uma mensagem estruturada para encaminhamento ao WhatsApp.
+
+---
+
+## 💬 WhatsApp
+
+A RITUALE utiliza o WhatsApp como canal final de atendimento.
+
+Em vez de utilizar um gateway de pagamento online nesta versão, o sistema prepara as informações do pedido para que o cliente possa continuar o atendimento através do WhatsApp.
+
+### Fluxo:
+
+```text
+Cliente
+   ↓
+Seleciona produtos
+   ↓
+Carrinho
+   ↓
+Pedido
+   ↓
+Mensagem estruturada
+   ↓
+WhatsApp
+```
+
+---
+
+## 📊 Estoque
+
+O backend possui controle de estoque dos produtos.
+
+Isso permite trabalhar com:
+
+* Quantidade disponível
+* Verificação de disponibilidade
+* Controle de itens
+* Integração com pedidos
+
+---
+
+# 🔐 Segurança
+
+A aplicação possui uma camada de segurança baseada em:
+
+* Spring Security
+* JWT
+* Autenticação de usuários
+* Autorização de acesso
+* Separação entre recursos públicos e protegidos
+
+A estrutura de segurança está localizada no módulo:
+
+```text
+backend/src/main/java/com/rituale/security/
+```
+
+---
+
+# ⚙️ Backend
+
+O backend foi desenvolvido utilizando **Java 21** e **Spring Boot**.
+
+A aplicação segue uma organização modular para facilitar manutenção e evolução.
+
+### Principais módulos:
+
+```text
+com.rituale
+│
+├── auth
+├── cart
+├── category
+├── config
+├── favorite
+├── health
+├── order
+├── product
+├── security
+└── user
+```
+
+Essa divisão separa as responsabilidades de cada parte do sistema.
+
+---
+
+# 🧰 Tecnologias
+
+## Backend
+
+| Tecnologia      | Utilização                     |
+| --------------- | ------------------------------ |
+| Java 21         | Linguagem principal            |
+| Spring Boot     | Framework da aplicação         |
+| Spring Security | Segurança e autenticação       |
+| JWT             | Autenticação baseada em tokens |
+| Spring Data JPA | Persistência de dados          |
+| Hibernate       | ORM                            |
+| Flyway          | Migrações do banco             |
+| PostgreSQL      | Banco de dados                 |
+| Maven           | Gerenciamento e build          |
+
+---
+
+## Frontend
+
+| Tecnologia | Utilização                          |
+| ---------- | ----------------------------------- |
+| HTML5      | Estrutura                           |
+| CSS3       | Estilização                         |
+| JavaScript | Interatividade e integração com API |
+
+O frontend é mantido separado do backend e possui páginas independentes para as principais áreas da loja.
+
+---
+
+## Infraestrutura
+
+* Docker
+* Docker Compose
+* PostgreSQL
+* Variáveis de ambiente
+* Profiles do Spring Boot
+
+---
+
+# 📁 Estrutura do projeto
+
+```text
+RITUALE/
+│
 ├── backend/
-│   ├── Dockerfile
-│   ├── pom.xml
+│   ├── .mvn/
+│   │   └── wrapper/
+│   │
 │   ├── src/
 │   │   ├── main/
-│   │   │   ├── java/com/rituale/
-│   │   │   │   ├── auth/
-│   │   │   │   ├── cart/
-│   │   │   │   ├── category/
-│   │   │   │   ├── config/
-│   │   │   │   ├── favorite/
-│   │   │   │   ├── order/
-│   │   │   │   ├── product/
-│   │   │   │   ├── security/
-│   │   │   │   └── user/
+│   │   │   ├── java/
+│   │   │   │   └── com/
+│   │   │   │       └── rituale/
+│   │   │   │           ├── auth/
+│   │   │   │           ├── cart/
+│   │   │   │           ├── category/
+│   │   │   │           ├── config/
+│   │   │   │           ├── favorite/
+│   │   │   │           ├── health/
+│   │   │   │           ├── order/
+│   │   │   │           ├── product/
+│   │   │   │           ├── security/
+│   │   │   │           └── user/
+│   │   │   │
 │   │   │   └── resources/
+│   │   │       ├── db/
+│   │   │       │   └── migration/
 │   │   │       ├── application.yml
 │   │   │       ├── application-dev.yml
-│   │   │       ├── application-prod.yml
 │   │   │       ├── application-test.yml
-│   │   │       └── db/migration/
+│   │   │       └── application-prod.yml
+│   │   │
 │   │   └── test/
-│   └── target/
+│   │
+│   ├── Dockerfile
+│   └── pom.xml
+│
 ├── frontend/
-│   ├── index.html
-│   ├── produtos.html
-│   ├── produto.html
-│   ├── carrinho.html
-│   ├── login.html
-│   ├── cadastro.html
-│   ├── favoritos.html
+│   ├── admin/
 │   ├── css/
-│   └── js/
-├── docker-compose.yml
+│   ├── js/
+│   ├── cadastro.html
+│   ├── carrinho.html
+│   ├── favoritos.html
+│   ├── index.html
+│   ├── login.html
+│   ├── produto.html
+│   └── produtos.html
+│
+├── backup_rituale_20260902_170916/
+│   └── frontend/
+│
 ├── .env.example
 ├── .gitignore
-├── README.md
-└── .git
+├── docker-compose.yml
+└── README.md
 ```
 
-## Requisitos
+---
 
-- Java 21
-- Maven
-- Docker + Docker Compose
-- Git
+# 🗄️ Banco de dados
 
-## Executar localmente
+O projeto utiliza **PostgreSQL** como banco de dados principal.
 
-### 1) Configurar variáveis de ambiente
+As alterações estruturais do banco são controladas através do **Flyway**, permitindo versionamento das migrações.
 
-```bash
-cp .env.example .env
+As migrações ficam em:
+
+```text
+backend/src/main/resources/db/migration/
 ```
 
-### 2) Subir PostgreSQL
+---
+
+# 🐳 Docker
+
+O projeto possui configuração para execução do PostgreSQL utilizando Docker Compose.
+
+Para iniciar o banco:
 
 ```bash
 docker compose up -d postgres
 ```
 
-### 3) Rodar backend
+Para verificar os containers:
 
 ```bash
-cd backend
-export JAVA_HOME=/caminho/para/o/jdk-21
-mvn spring-boot:run
+docker compose ps
 ```
 
-A API fica em:
-
-- http://localhost:8080
-- health check: http://localhost:8080/actuator/health
-
-### 4) Rodar frontend
+Para parar os serviços:
 
 ```bash
-cd frontend
-python3 -m http.server 8000
+docker compose down
 ```
 
-A interface fica em:
+---
 
-- http://localhost:8000
+# 🔧 Configuração
 
-## Perfis
+Antes de executar o projeto, crie o arquivo `.env` baseado no arquivo fornecido:
 
-- `default`: configuração local padrão
-- `dev`: ambiente de desenvolvimento
-- `test`: testes automatizados
-- `prod`: produção
+```bash
+cp .env.example .env
+```
 
-## Variáveis de ambiente
-
-Arquivo [.env.example](.env.example):
+O projeto utiliza variáveis de ambiente para configurações como:
 
 ```env
 POSTGRES_DB=rituale
 POSTGRES_USER=rituale
 POSTGRES_PASSWORD=rituale
 POSTGRES_PORT=5432
+
 JWT_SECRET=change-this-secret-in-production-minimum-32-characters
 JWT_EXPIRATION_MS=86400000
+
 APP_PORT=8080
+
 WHATSAPP_PHONE=5500000000000
 ```
 
-## Como publicar no GitHub publicamente
+> ⚠️ Em ambiente de produção, utilize valores seguros e nunca publique credenciais ou chaves secretas no repositório.
 
-### 1) Verificar o estado do Git
+---
 
-```bash
-git status
-git branch
-```
+# ▶️ Executando o projeto
 
-### 2) Criar o commit inicial
+## 1. Pré-requisitos
 
-```bash
-git add .
-git commit -m "feat: initial public release"
-```
+Antes de começar, instale:
 
-### 3) Criar o repositório no GitHub como público
+* Java 21
+* Maven
+* Docker
+* Docker Compose
+* Git
+* Python 3
 
-No GitHub:
+---
 
-- clique em New repository
-- escolha um nome, por exemplo: `rituale`
-- marque `Public`
-- não inicialize com README, .gitignore ou licença, porque o projeto já tem isso
-
-### 4) Conectar o repositório local ao remoto
+## 2. Clone o projeto
 
 ```bash
-git remote add origin git@github.com:SEU_USUARIO/rituale.git
-# ou HTTPS
-# git remote add origin https://github.com/SEU_USUARIO/rituale.git
-
-git branch -M main
-git push -u origin main
+git clone https://github.com/JeffersonAraujo-Dev/RITUALE.git
 ```
 
-## Hospedagem gratuita do backend
+Entre na pasta:
 
-As opções mais simples e práticas são:
+```bash
+cd RITUALE
+```
 
-### Option 1 — Render
+---
 
-- Boa experiência para Spring Boot
-- Deploy simples via GitHub
-- Backend gratuito para projetos pequenos
-- Recomendado para quem quer algo rápido e estável
+## 3. Configure o ambiente
 
-### Option 2 — Railway
+```bash
+cp .env.example .env
+```
 
-- Muito fácil de conectar com GitHub
-- Suporte rápido para Java/Spring Boot
-- Bom para projetos pequenos e protótipos
+Revise as configurações do arquivo `.env`.
 
-### Option 3 — Fly.io
+---
 
-- Bom custo/benefício
-- Mais técnico e um pouco mais complexo de configurar
+## 4. Inicie o PostgreSQL
 
-## Recomendação prática
+```bash
+docker compose up -d postgres
+```
 
-Para um projeto como este, eu recomendo:
+---
 
-1. Publicar no GitHub como público
-2. Conectar o repo ao Render ou Railway
-3. Definir variáveis de ambiente no painel do provedor
-4. Usar PostgreSQL gerenciado do próprio provedor ou Docker em ambiente muito simples
+## 5. Execute o backend
 
-## Próximos passos sugeridos
+Entre na pasta:
 
-- integrar painel administrativo completo
-- voltar ao frontend com React/TypeScript
-- melhorar o checkout com dados do cliente no pedido
-- adicionar dashboard de vendas e estoque
-- criar fluxo de perfil do usuário
+```bash
+cd backend
+```
 
-## Observação
+Execute:
 
-Este projeto foi pensado para funcionar como loja premium sem pagamento online na primeira versão, usando WhatsApp como canal final de atendimento e fechamento do pedido.
+```bash
+mvn spring-boot:run
+```
+
+A API estará disponível, por padrão, em:
+
+```text
+http://localhost:8080
+```
+
+---
+
+# ❤️ Health Check
+
+A aplicação possui endpoint de verificação de saúde:
+
+```text
+http://localhost:8080/actuator/health
+```
+
+Esse endpoint pode ser utilizado para verificar se o backend está funcionando corretamente.
+
+---
+
+# 🌐 Executando o frontend
+
+Abra outro terminal.
+
+Na raiz do projeto:
+
+```bash
+cd frontend
+```
+
+Execute um servidor HTTP local:
+
+```bash
+python3 -m http.server 8000
+```
+
+Depois abra:
+
+```text
+http://localhost:8000
+```
+
+---
+
+# 🧪 Perfis de configuração
+
+O backend possui diferentes configurações do Spring Boot:
+
+```text
+application.yml
+application-dev.yml
+application-test.yml
+application-prod.yml
+```
+
+Os profiles permitem separar configurações de acordo com o ambiente de execução.
+
+---
+
+# 🏗️ Arquitetura
+
+A aplicação utiliza uma arquitetura dividida em frontend, API e banco de dados:
+
+```text
+                 ┌───────────────────┐
+                 │      Cliente      │
+                 │ Browser / Mobile  │
+                 └─────────┬─────────┘
+                           │
+                           ▼
+                 ┌───────────────────┐
+                 │     Frontend      │
+                 │   HTML/CSS/JS     │
+                 └─────────┬─────────┘
+                           │
+                      HTTP / REST
+                           │
+                           ▼
+                 ┌───────────────────┐
+                 │    Spring Boot    │
+                 │      REST API     │
+                 └─────────┬─────────┘
+                           │
+             ┌─────────────┼─────────────┐
+             │             │             │
+             ▼             ▼             ▼
+        ┌────────┐   ┌──────────┐   ┌──────────┐
+        │  JWT   │   │   JPA    │   │  Flyway  │
+        │Security│   │Hibernate │   │Migration │
+        └────────┘   └────┬─────┘   └──────────┘
+                          │
+                          ▼
+                   ┌─────────────┐
+                   │ PostgreSQL  │
+                   └─────────────┘
+```
+
+---
+
+# 🔄 Fluxo de compra
+
+O fluxo principal da aplicação é:
+
+```text
+                  RITUALE
+                     │
+                     ▼
+               ┌───────────┐
+               │ Catálogo  │
+               └─────┬─────┘
+                     │
+                     ▼
+             ┌───────────────┐
+             │   Produto     │
+             └───────┬───────┘
+                     │
+                     ▼
+             ┌───────────────┐
+             │    Carrinho   │
+             └───────┬───────┘
+                     │
+                     ▼
+             ┌───────────────┐
+             │    Pedido     │
+             └───────┬───────┘
+                     │
+                     ▼
+             ┌───────────────┐
+             │   WhatsApp    │
+             └───────────────┘
+```
+
+---
+
+# 🎯 Objetivos técnicos
+
+O projeto foi estruturado com foco em:
+
+* Separação de responsabilidades
+* Código organizado por domínio
+* API REST
+* Autenticação segura
+* Persistência relacional
+* Versionamento do banco de dados
+* Configuração por ambiente
+* Containerização
+* Facilidade de manutenção
+* Possibilidade de expansão futura
+
+---
+
+# 🔮 Evolução planejada
+
+Algumas funcionalidades podem ser incorporadas em versões futuras:
+
+* Dashboard administrativo mais completo
+* Gerenciamento avançado de estoque
+* Histórico detalhado de pedidos
+* Perfil completo do usuário
+* Melhorias no checkout
+* Integração com meios de pagamento
+* Melhorias de acessibilidade
+* Testes automatizados mais abrangentes
+* Evolução do frontend
+* Monitoramento e observabilidade
+* Deploy automatizado
+
+Esses itens representam **possíveis evoluções**, não funcionalidades que devem ser consideradas implementadas na versão atual.
+
+---
+
+# 📌 Status do projeto
+
+**Em desenvolvimento.**
+
+A base atual já contempla uma arquitetura full-stack com:
+
+```text
+Java 21
+   +
+Spring Boot
+   +
+Spring Security / JWT
+   +
+JPA / Hibernate
+   +
+Flyway
+   +
+PostgreSQL
+   +
+HTML / CSS / JavaScript
+   +
+Docker
+```
+
+---
+
+# 👨‍💻 Autor
+
+Desenvolvido por **Jefferson Araujo**.
+
+GitHub:
+
+**[JeffersonAraujo-Dev](https://github.com/JeffersonAraujo-Dev)**
+
+Repositório:
+
+**[RITUALE](https://github.com/JeffersonAraujo-Dev/RITUALE)**
+
+---
+
+# 📄 Licença
+
+Este projeto não possui uma licença open source definida no repositório no momento.
+
+Caso o projeto seja disponibilizado para uso, modificação ou distribuição por terceiros, recomenda-se adicionar um arquivo `LICENSE` apropriado.
+
+---
+
+<p align="center">
+
+### 🌙 RITUALE
+
+**Fragrâncias. Identidade. Experiência.**
+
+</p>
